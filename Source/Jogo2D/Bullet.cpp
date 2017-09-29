@@ -62,20 +62,5 @@ void ABullet::OnHit(UPrimitiveComponent * HitComponent, AActor * OtherActor, UPr
 void ABullet::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
 
-	if (OtherActor != nullptr && OtherActor->IsA(AEnemy1::StaticClass())) {
-		AEnemy1* Enemy1 = Cast<AEnemy1>(OtherActor);
-		Enemy1->Life--;
-		if (Enemy1->Life <= 0) {
-			Enemy1->Destroy();
-		}
-	}
-
-	if (OtherActor != nullptr && OtherActor->IsA(AEnemy2::StaticClass())) {
-		AEnemy2* Enemy2 = Cast<AEnemy2>(OtherActor);
-		Enemy2->Life--;
-		if (Enemy2->Life <= 0) {
-			Enemy2->Destroy();
-		}
-	}
 
 }

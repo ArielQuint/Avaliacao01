@@ -33,12 +33,22 @@ public:
 	void StopFire();
 
 	void AddGunToArray(class AGun* Gun);
+	void LeftGun();
 	int GetSelectedGun();
 	TArray<class AGun*> GetGuns();
 
 
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
-		int Life = 3;
+		
+
+	UFUNCTION(BlueprintCallable, Category = "Jogador")
+		int GetVidas();
+	UFUNCTION(BlueprintCallable, Category = "Jogador")
+		void SetVidas(int NewMoedas);
+
+	UFUNCTION(BlueprintCallable, Category = "Jogador")
+		int GetMoedas();
+	UFUNCTION(BlueprintCallable, Category = "Jogador")
+		void SetMoedas(int NewMoedas);
 
 
 private:
@@ -73,5 +83,9 @@ private:
 		const FVector Location);
 
 	void SwitchGun();
+
+	int Moedas = 0;
+
+	int Vidas;
 	
 };

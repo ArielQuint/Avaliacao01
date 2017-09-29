@@ -4,16 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Coin.generated.h"
+#include "NextLevel.generated.h"
 
 UCLASS()
-class JOGO2D_API ACoin : public AActor
+class JOGO2D_API ANextLevel : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	ACoin();
+	ANextLevel();
 
 protected:
 	// Called when the game starts or when spawned
@@ -34,5 +34,6 @@ private:
 	UFUNCTION()
 		void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
-	TSubclassOf<class ANextLevel> MyItemBlueprint;
+	
+	
 };

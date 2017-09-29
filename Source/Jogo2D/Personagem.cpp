@@ -37,6 +37,8 @@ void APersonagem::BeginPlay()
 {
 	Super::BeginPlay();
 
+	Vidas = 3;
+
 	if (Idle) {
 		GetSprite()->SetFlipbook(Idle);
 	}
@@ -73,6 +75,8 @@ void APersonagem::SetupPlayerInputComponent(UInputComponent *
 		this, &APersonagem::StopFire);
 	PlayerInputComponent->BindAction("Switch", IE_Pressed,
 		this, &APersonagem::SwitchGun);
+	PlayerInputComponent->BindAction("LeftGun", IE_Pressed,
+		this, &APersonagem::LeftGun);
 
 	PlayerInputComponent->BindTouch(IE_Pressed, this,
 		&APersonagem::TouchStarted);
@@ -151,6 +155,17 @@ void APersonagem::AddGunToArray(AGun * Gun)
 	}
 }
 
+void APersonagem::LeftGun()
+{
+	Guns[SelectedGun]->StopFire();
+	Guns.RemoveAt(SelectedGun);
+	int LastSelected = SelectedGun;
+	SelectedGun = 0;
+	if (LastSelected >= 0) {
+		Guns[LastSelected]->SetActorHiddenInGame(true);
+	}
+}
+
 int APersonagem::GetSelectedGun()
 {
 	return SelectedGun;
@@ -216,4 +231,9 @@ void APersonagem::SwitchGun()
 
 }
 
+int APersonagem::GetMoedas() { return Moedas; }
+void APersonagem::SetMoedas(int NewMoedas) { Moedas = NewMoedas; }
+
+int APersonagem::GetVidas() { return Vidas; }
+void APersonagem::SetVidas(int NewVidas) { Vidas = NewVidas; }
 

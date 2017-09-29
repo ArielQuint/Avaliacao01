@@ -15,9 +15,6 @@ class JOGO2D_API AEnemy2 : public AEnemy
 	GENERATED_BODY()
 public:
 //	AEnemy2();
-
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
-		int Life = 5;
 	
 	
 	
